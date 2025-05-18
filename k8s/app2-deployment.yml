@@ -1,19 +1,19 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: nginx
+  name: login
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: login
   template:
     metadata:
       labels:
-        app: nginx
+        app: login
     spec:
       containers:
-      - name: nginx-container
-        image: nginx
+      - name: login
+        image: azzu250/login-2509
         ports:
         - containerPort: 80
