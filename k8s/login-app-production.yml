@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login
+spec:
+  replicas: 2 # as two worker nodes
+  selector:
+    matchLabels:
+      app: login
+  template:  #pod template
+    metadata:
+      labels:
+        app: login
+    spec:
+      containers:
+      - name: c1
+        image: azzu250/login-2509
+        ports:
+        - containerPort: 80
+
+
+#service
+apiVersion: v1
+kind: Service
+metadata:
+  name: login-svc
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: login
