@@ -19,6 +19,8 @@ spec:
         ports:
         - containerPort: 80
 
+---
+
 
 #service
 apiVersion: v1
